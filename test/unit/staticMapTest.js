@@ -29,7 +29,7 @@ describe('staticMap', function() {
 
   describe('failures', function() {
 
-    var invalidCallback = [null, undefined, false, 0, NaN, '', {}, [], new Object, new Date];
+    var invalidCallback = [false, 0, NaN, '', {}, [], new Object, new Date];
 
     var calls = invalidCallback.map(
       function(invalid) {
