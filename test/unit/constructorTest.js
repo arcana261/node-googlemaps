@@ -125,25 +125,33 @@ describe('constructor', function() {
 
     it('should not return a singleton', function() {
 
-      var config = {
-        google_private_key: 'test-private_key'
+      var config1 = {
+        google_private_key: 'test_private_key_1',
+        stagger_time:       5000,
+        secure:             false
       };
 
-      var gmAPI_1 = new GoogleMapsAPI( config );
+      var gmAPI_1 = new GoogleMapsAPI( config1 );
 
-      var config = {
-        key: 'xxxxxxx',
+      var config2 = {
+        key:                'xxxxxxx',
         google_client_id:   'test-client-id',
         stagger_time:       1000,
         encode_polylines:   false,
         secure:             true,
         proxy:              'http://127.0.0.1:9999',
-        google_private_key: 'test-private-key'
+        google_private_key: 'test_private_key_2'
       };
 
-      var gmAPI_2 = new GoogleMapsAPI( config );
+      var gmAPI_2 = new GoogleMapsAPI( config2 );
 
       gmAPI_1.config.should.not.eql( gmAPI_2.config );
+      gmAPI_1.config.secure.should.be.false;
+
+      gmAPI_1.config.stagger_time.should.equal(config1.stagger_time);
+      gmAPI_2.config.stagger_time.should.equal(config2.stagger_time);
+
+      should.not.exist(gmAPI_1.config.key);
 
     });
 
