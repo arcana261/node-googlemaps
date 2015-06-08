@@ -1,6 +1,6 @@
 {
   "name": "googlemaps",
-  "version": "0.1.20",
+  "version": "0.1.20.2",
   "main": "./lib/googlemaps",
   "description": "A simple way to query the Google Maps API from Node.js",
   "author": {
@@ -16,7 +16,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "http://github.com/moshen/node-googlemaps"
+    "url": "http://github.com/arcana261/node-googlemaps"
   },
   "devDependencies": {
     "vows": "*"
@@ -29,6 +29,6 @@
     "waitress": ">=0.0.2"
   },
   "scripts": {
-    "test": "NODE_ENV=test vows test/*.js --spec"
+    "test": "vows test/*.js --spec"
   }
 }
